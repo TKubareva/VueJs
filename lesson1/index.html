@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lesson 1 - VueJS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+
+        <h2 v-if="course.name!=null" class="title_course">Курс {{course.name}}</h2>
+
+        <div class="course_info">
+            <div class="course_theme">
+                <p>
+                    <span>Тематика курса:</span>
+                    {{course.theme}}
+                </p>
+            </div>
+            <div class="course_description">
+                <p>
+                    <span>Описание курса:</span>
+                    {{course.description}}
+                </p>
+
+            </div>
+            <div class="course_date_start">
+                <p>
+                    <span>Дата старта:</span>
+                    {{localeDate}}
+                </p>
+            </div>
+            <div class="course_href">
+                <a :href="`${course.href}`" target="_blank">Ссылка на видео</a>
+            </div>
+        </div>
+
+        <button v-on:click="show = !show" class="add-new-student">
+            Добавить пользователя
+        </button>
+
+        <div v-if="show" class="add_user_block">
+
+            <input type="text"
+                    v-model="newStudent.name"
+                    placeholder="Введите имя"
+                    class="add-new-user">
+            <input type="text"
+                    v-model="newStudent.surname"
+                    placeholder="Введите отчество"
+                    class="add-new-user">
+            <input type="text"
+                    v-model="newStudent.lastname"
+                    placeholder="Введите фамилию"
+                    class="add-new-user">
+
+            <button class="add-user-btn" @click="addNewStudent">Сохранить</button>
+
+        </div>
+
+        <div v-if="course.student.length>0" class="student-list">
+            <p>Список учащихся
+                <i>{{ StudentAll }} человек(а)</i>:
+            </p>
+            <ul>
+                <li v-for="(student, index) in course.student"
+                    :key="student.id"
+                    class="user-list__item">
+
+                    <span class="user-list__text">
+                            {{student.name}}
+                            {{student.surname}}
+                            {{student.lastname}}
+                    </span>
+
+                    <button class="delete-user-btn" @click="deleteStudent(index)">X</button>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

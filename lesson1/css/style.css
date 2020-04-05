@@ -1,0 +1,31 @@
+.add-new-student, .add-user-btn {
+    box-sizing: border-box;
+    padding: 6px 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.add-new-student{
+    width: 200px;
+}
+
+.add-user-btn{
+    width: 100px;
+}
+
+.delete-user-btn {
+    margin-left: 10px;
+    border: none;
+    border-radius: 30%;
+    color: #fff;
+    background-color: orangered;
+    cursor: pointer;
+}
+
+.add_user_block{
+    margin: 20px 0px;
+}
+
+.course_info {
+     padding: 0px 0px 20px;
+}
