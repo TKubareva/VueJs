@@ -19,7 +19,7 @@ new Vue({
             lastname: '',
             surname: ''
         },
-
+        counter: 0,
         show: false
     },
     computed: {
@@ -34,7 +34,7 @@ new Vue({
         addNewStudent () {
             if (this.newStudent.lastname.length >0) {
                 this.course.student.push({
-                    id: this.StudentAll.length + 1,
+                    id: "new_" + (++this.counter),
                     name: this.newStudent.name,
                     lastname: this.newStudent.lastname,
                     surname: this.newStudent.surname,
